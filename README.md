@@ -108,8 +108,7 @@ values are always bigger than 1).  The approach is not useful here.
 ![large_prob](./docs/pooling_05.png)
 
 - Case 2: <img src="https://render.githubusercontent.com/render/math?math=p = 0.1">, modest fraction of disease carriers.  Main result: The two
-methods both give comparable benefits.  It is optimal to pool using <img src="https://render.githubusercontent.com/render/math?math=\mathbb{K}=2">, which gives groups of <img src="https://render.githubusercontent.com/render/math?math=N = 4"> patients. This cuts the number of
-needed tests by a factor of 0.6.
+methods both give comparable benefits.  It is optimal to pool using <img src="https://render.githubusercontent.com/render/math?math=\mathbb{K}=2">, which gives groups of <img src="https://render.githubusercontent.com/render/math?math=N = 4"> patients. This cuts the number of needed tests per sample to 0.6.
 
 ![med_prob](./docs/pooling_01.png)
 
@@ -118,7 +117,7 @@ Bisection wins, the optimal <img src="https://render.githubusercontent.com/rende
 group of size 512.  We cut the test count needed by a factor of 50.  Note:
 We also show here a histogram showing the number of tests needed when we run a
 simulated system like this.  We see that we often only need one test, and there
-is another peak around 20 tests, with a long tail after that. 
+is another peak around 20 tests, with some structure after that. 
 
 ![small_prob](./docs/pooling_0001.png)
 
