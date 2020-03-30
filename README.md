@@ -108,9 +108,7 @@ values are always bigger than 1).  The approach is not useful here.
 ![large_prob](./docs/pooling_05.png)
 
 - Case 2: <img src="https://render.githubusercontent.com/render/math?math=p = 0.1">, modest fraction of disease carriers.  Main result: The two
-methods both give comparable benefits.  It is optimal to pool using
-
-<img src="https://render.githubusercontent.com/render/math?math=\mathbb{K}=2">, which gives groups of <img src="https://render.githubusercontent.com/render/math?math=N = 4"> patients. This cuts the number of
+methods both give comparable benefits.  It is optimal to pool using <img src="https://render.githubusercontent.com/render/math?math=\mathbb{K}=2">, which gives groups of <img src="https://render.githubusercontent.com/render/math?math=N = 4"> patients. This cuts the number of
 needed tests by a factor of 0.6.
 
 ![med_prob](./docs/pooling_01.png)
@@ -123,6 +121,7 @@ simulated system like this.  We see that we often only need one test, and there
 is another peak around 20 tests, with a long tail after that. 
 
 ![small_prob](./docs/pooling_0001.png)
+
 ![small_prob_hist](./docs/pooling_hist.png)
 
 
@@ -171,18 +170,16 @@ plt.ylabel('mean tests / pooling size')
 Consider a binary tree with the root node being the initial test. Each node
 has two children that correspond to the tests of the two subgroups for a given
 test.  We must test these if the parent is positive.  Level 0 is the initial
-test and $k$ rows down we call the level k of tests.  There are total of $2^k$
-posible tests to run at this level, and there are a total of $\mathbb{K}$ levels.
+test and k rows down we call the level k of tests.  There are total of <img src="https://render.githubusercontent.com/render/math?math=2^k"> posible tests to run at this level, and there are a total of <img src="https://render.githubusercontent.com/render/math?math=\mathbb{K}"> levels.
 
 The number of tests that need to be run at level k is set by the number of
 positive tests at level k-1.  We have
 
 <img src="https://render.githubusercontent.com/render/math?math=\text{Number of tests} = 1 %2B \sum_{k=0}^{\mathbb{K} - 1} \text{number positive level k}">
 
-Averaging this equation gives
+If we average this, we just get the number of tests at level k times the probability any given test is positive at that level. This gives
 
-<img src="https://render.githubusercontent.com/render/math?math=\overline{\text{Number of tests}} &=& 1 %2B \sum_{k=0}^{\mathbb{K} - 1} 2^k \times prob(\text{test at level k positive}) \\
-&=& 1 %2B  \sum_{k=0}^{\mathbb{K} - 1} 2^k \times [ 1- (1 - p)^{2^{\mathbb{K} - k}}].">
+<img src="https://render.githubusercontent.com/render/math?math=\overline{\text{Number of tests}} &=& 1 %2B \sum_{k=0}^{\mathbb{K} - 1} 2^k \times prob(\text{test at level k positive}) \\ &=& 1 %2B  \sum_{k=0}^{\mathbb{K} - 1} 2^k \times [ 1- (1 - p)^{2^{\mathbb{K} - k}}].">
 
 The inner factor here is the probability that a given test of the size being
 considered comes back positive -- this has
