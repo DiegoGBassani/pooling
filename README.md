@@ -79,9 +79,10 @@ We posit that we have a pool of
 
 people to be tested.  In the first round, we pool all their samples and test the
 group.  If the group comes back positive, we then run one of the refined methods to
-figure out which people exactly have the illness.  Each person is supposed to have a probability $p$ of having the disease.
-Below, we ask how to set $\mathbb{K}$ -- which determines the pooling size --
-so as to minimize the mean number of tests needed divided by $N$, which can be
+figure out which people exactly have the illness.  Each person is supposed to have a probability
+<img src="https://render.githubusercontent.com/render/math?math=p"> of having the disease.
+Below, we ask how to set <img src="https://render.githubusercontent.com/render/math?math=\mathbb{K}"> -- which determines the pooling size --
+so as to minimize the mean number of tests needed divided by <img src="https://render.githubusercontent.com/render/math?math=N">, which can be
 considered the pooling reduction factor.
 
 The mean number of tests needed from the simple strategy is
@@ -103,6 +104,7 @@ This then finds the optimal number for each type.  The plots below give the resu
 pooling strategies both cause the mean number of tests to be larger than if
 we just screened each individual from the start (seen here because the y-axis
 values are always bigger than 1).  The approach is not useful here.
+
 ![large_prob](./docs/pooling_05.png)
 
 - Case 2: <img src="https://render.githubusercontent.com/render/math?math=p = 0.1">, modest fraction of disease carriers.  Main result: The two
@@ -110,6 +112,7 @@ methods both give comparable benefits.  It is optimal to pool using
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathbb{K}=2">, which gives groups of <img src="https://render.githubusercontent.com/render/math?math=N = 4"> patients. This cuts the number of
 needed tests by a factor of 0.6.
+
 ![med_prob](./docs/pooling_01.png)
 
 - Case 3: <img src="https://render.githubusercontent.com/render/math?math=p = 0.001">, small fraction of disease carriers.  Main result:
@@ -118,6 +121,7 @@ group of size 512.  We cut the test count needed by a factor of 50.  Note:
 We also show here a histogram showing the number of tests needed when we run a
 simulated system like this.  We see that we often only need one test, and there
 is another peak around 20 tests, with a long tail after that. 
+
 ![small_prob](./docs/pooling_0001.png)
 ![small_prob_hist](./docs/pooling_hist.png)
 
@@ -166,21 +170,23 @@ plt.ylabel('mean tests / pooling size')
 ### **Appendix: Derivation of (\ref{bisection_result})**
 Consider a binary tree with the root node being the initial test. Each node
 has two children that correspond to the tests of the two subgroups for a given
-test.  We must test these if the parent is positive.  Level $0$ is the initial
-test and $k$ rows down we call the level $k$ of tests.  There are total of $2^k$
+test.  We must test these if the parent is positive.  Level 0 is the initial
+test and $k$ rows down we call the level k of tests.  There are total of $2^k$
 posible tests to run at this level, and there are a total of $\mathbb{K}$ levels.
 
-The number of tests that need to be run at level $k$ is set by the number of
-positive tests at level $k-1$.  We have
-\begin{eqnarray}
-\text{Number of tests} = 1 + \sum_{k=0}^{\mathbb{K} - 1} \text{number positive level k}
-\end{eqnarray}
+The number of tests that need to be run at level k is set by the number of
+positive tests at level k-1.  We have
+
+<img src="https://render.githubusercontent.com/render/math?math=\text{Number of tests} = 1 + \sum_{k=0}^{\mathbb{K} - 1} \text{number positive level k}">
+
 Averaging this equation gives
-\begin{eqnarray}
-\overline{\text{Number of tests}} &=& 1 + \sum_{k=0}^{\mathbb{K} - 1} 2^k \times prob(\text{test at level k positive}) \\
-&=& 1 +  \sum_{k=0}^{\mathbb{K} - 1} 2^k \times [ 1- (1 - p)^{2^{\mathbb{K} - k}}]. 
-\end{eqnarray}
+
+<img src="https://render.githubusercontent.com/render/math?math=\overline{\text{Number of tests}} &=& 1 + \sum_{k=0}^{\mathbb{K} - 1} 2^k \times prob(\text{test at level k positive}) \\
+&=& 1 +  \sum_{k=0}^{\mathbb{K} - 1} 2^k \times [ 1- (1 - p)^{2^{\mathbb{K} - k}}].">
+
 The inner factor here is the probability that a given test of the size being
-considered comes back positive -- this has $N / 2^k = 2^{\mathbb{K} - k}$ people
-in it.  This is the result shown above in (\ref{bisection_result}).
+considered comes back positive -- this has
+
+<img src="https://render.githubusercontent.com/render/math?math=N / 2^k = 2^{\mathbb{K} - k}"> people
+in it.  This is the result shown above.
 
