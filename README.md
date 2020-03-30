@@ -179,7 +179,6 @@ positive tests at level k-1.  We have
 
 If we average this, we just get the number of tests at level k times the probability any given test is positive at that level. This gives
 
-<img src="https://render.githubusercontent.com/render/math?math=\overline{\text{Number of tests}} = 1 %2B  \sum_{k=0}^{\mathbb{K} - 1} 2^k \times [ 1- (1 - p)^{2^{\mathbb{K} - k}}],">
+<img src="https://render.githubusercontent.com/render/math?math=\overline{\text{Number of tests}} = 1 %2B  \sum_{k=0}^{\mathbb{K} - 1} 2^k \times [ 1- (1 - p)^{2^{\mathbb{K} - k}}].">
 
-the result shown above.
-
+This is the result shown above.
