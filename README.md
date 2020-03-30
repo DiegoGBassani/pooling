@@ -18,10 +18,12 @@ population, $p$.
 Impact summary of pooling concept: 
  - If <img src="https://render.githubusercontent.com/render/math?math=p = O(1)">,
    so that many people have the illness, pooling doesn't help. 
- - If $p = 0.1$, perhaps typical of people being screened with symptoms, we can
+ - If <img src="https://render.githubusercontent.com/render/math?math=p = 0.1">,
+   perhaps typical of people being screened with symptoms, we can
    reduce the test count needed by about $\sim 0.6$ using pooling, and the two refined
 search methods we consider perform similarly here.
- - If $p = 0.001$, so that positive cases are rare -- perhaps useful for
+ - If <img src="https://render.githubusercontent.com/render/math?math=p = 0.001">,
+   so that positive cases are rare -- perhaps useful for
    screening an office of workers expected to be healthy, then we can cut the
 mean test count by a factor of $50$, and the bisection method for refined search performs best here (details below).
 
@@ -73,9 +75,9 @@ where appropriate.
 ### **Model and results**
 
 We posit that we have a pool of
-\begin{eqnarray}
-N = 2^{\mathbb{K}} \tag{1} \label{count_pop}
-\end{eqnarray} 
+
+<img src="https://render.githubusercontent.com/render/math?math=N = 2^{\mathbb{K}}">,
+
 people to be tested.  In the first round, we pool all their samples and test the
 group.  If the group comes back positive, we then run one of the refined methods to
 figure out which people exactly have the illness.  Each person is supposed to have a probability $p$ of having the disease.
@@ -84,21 +86,19 @@ so as to minimize the mean number of tests needed divided by $N$, which can be
 considered the pooling reduction factor.
 
 The mean number of tests needed from the simple strategy is
-\begin{eqnarray}\tag{2} \label{simple_result}
-\overline{N}_{simple} = (1 - p)^N\times 1 + \left [1 - (1-p)^N \right] \times (1 + N)
-\end{eqnarray}
+
+<img src="https://render.githubusercontent.com/render/math?math=\overline{N}_{simple} = (1 - p)^N\times 1 + \left [1 - (1-p)^N \right] \times (1 + N)">,
+
 The mean number needed in the bisection strategy is
-\begin{eqnarray} \tag{3} \label{bisection_result}
-\overline{N}_{bisection} = 1 +  2 \sum_{k=0}^{\mathbb{K}} 2^k \left (1 - (1 -p)^{2^{\mathbb{K}-k}} \right)
-\end{eqnarray}
-The proof of (\ref{simple_result}) is straightforward and we give an argument for
-(\ref{bisection_result}) in an appendix. A cell of our notebook checks this
-and confirms its accuracy.
+
+<img src="https://render.githubusercontent.com/render/math?math=\overline{N}_{bisection} = 1 +  2 \sum_{k=0}^{\mathbb{K}} 2^k \left (1 - (1 -p)^{2^{\mathbb{K}-k}} \right)">,
+
+The proof of the first result above is straightforward and we give an argument for
+the second in an appendix. A cell of our notebook checks this and confirms its accuracy.
 
 Using the above results, our code produces plots of the mean number of tests
-needed to screen a population vs $\mathbb{K}$.  This then finds the optimal
-number for each type.  The plots below give the results for the three $p$ values
-noted in the abstract.
+needed to screen a population vs <img src="https://render.githubusercontent.com/render/math?math=\mathbb{K}">.
+This then finds the optimal number for each type.  The plots below give the results for the three <img src="https://render.githubusercontent.com/render/math?math=p"> values noted in the abstract.
 
 - Case 1: $p = 0.5$, large fraction of disease carriers.  Main result: The
 pooling strategies both cause the mean number of tests to be larger than if
@@ -114,10 +114,10 @@ needed tests by a factor of $0.6$.
 
 - Case 3: $p = 0.001$, small fraction of disease carriers.  Main result:
 Bisection wins, the optimal $\mathbb{K} = 9$ here, which gives a pooling
-group of size $512$.  We cut the test count needed by a factor of $50$.  Note:
+group of size 512.  We cut the test count needed by a factor of 50.  Note:
 We also show here a histogram showing the number of tests needed when we run a
 simulated system like this.  We see that we often only need one test, and there
-is another peak around $20$ tests, with a long tail after that. 
+is another peak around 20 tests, with a long tail after that. 
 ![small_prob](./docs/pooling_0001.png)
 ![small_prob_hist](./docs/pooling_hist.png)
 
