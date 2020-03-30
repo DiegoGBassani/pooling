@@ -87,11 +87,11 @@ considered the pooling reduction factor.
 
 The mean number of tests needed from the simple strategy is
 
-<img src="https://render.githubusercontent.com/render/math?math=\overline{N}_{simple} = (1 - p)^N\times 1 + \left [1 - (1-p)^N \right] \times (1 + N)">,
+<img src="https://render.githubusercontent.com/render/math?math=\overline{N}_{simple} = (1 - p)^N\times 1 %2B \left [1 - (1-p)^N \right] \times (1 %2B N)">,
 
 The mean number needed in the bisection strategy is
 
-<img src="https://render.githubusercontent.com/render/math?math=\overline{N}_{bisection} = 1 +  2 \sum_{k=0}^{\mathbb{K}} 2^k \left (1 - (1 -p)^{2^{\mathbb{K}-k}} \right)">,
+<img src="https://render.githubusercontent.com/render/math?math=\overline{N}_{bisection} = 1 %2B  2 \sum_{k=0}^{\mathbb{K}} 2^k \left (1 - (1 -p)^{2^{\mathbb{K}-k}} \right)">,
 
 The proof of the first result above is straightforward and we give an argument for
 the second in an appendix. A cell of our notebook checks this and confirms its accuracy.
@@ -177,12 +177,12 @@ posible tests to run at this level, and there are a total of $\mathbb{K}$ levels
 The number of tests that need to be run at level k is set by the number of
 positive tests at level k-1.  We have
 
-<img src="https://render.githubusercontent.com/render/math?math=\text{Number of tests} = 1 + \sum_{k=0}^{\mathbb{K} - 1} \text{number positive level k}">
+<img src="https://render.githubusercontent.com/render/math?math=\text{Number of tests} = 1 %2B \sum_{k=0}^{\mathbb{K} - 1} \text{number positive level k}">
 
 Averaging this equation gives
 
-<img src="https://render.githubusercontent.com/render/math?math=\overline{\text{Number of tests}} &=& 1 + \sum_{k=0}^{\mathbb{K} - 1} 2^k \times prob(\text{test at level k positive}) \\
-&=& 1 +  \sum_{k=0}^{\mathbb{K} - 1} 2^k \times [ 1- (1 - p)^{2^{\mathbb{K} - k}}].">
+<img src="https://render.githubusercontent.com/render/math?math=\overline{\text{Number of tests}} &=& 1 %2B \sum_{k=0}^{\mathbb{K} - 1} 2^k \times prob(\text{test at level k positive}) \\
+&=& 1 %2B  \sum_{k=0}^{\mathbb{K} - 1} 2^k \times [ 1- (1 - p)^{2^{\mathbb{K} - k}}].">
 
 The inner factor here is the probability that a given test of the size being
 considered comes back positive -- this has
