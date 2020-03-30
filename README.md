@@ -166,7 +166,7 @@ plt.ylabel('mean tests / pooling size')
 ```
 
 
-### **Appendix: Derivation of (\ref{bisection_result})**
+### **Appendix: Derivation of bisection result**
 Consider a binary tree with the root node being the initial test. Each node
 has two children that correspond to the tests of the two subgroups for a given
 test.  We must test these if the parent is positive.  Level 0 is the initial
