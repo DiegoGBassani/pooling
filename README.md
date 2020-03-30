@@ -16,8 +16,8 @@ strategy.  This depends on the frequency of disease within the testing
 population, $p$.
 
 Impact summary of pooling concept: 
-
- - If $p = O(1)$, so that many people have the illness, pooling doesn't help. 
+ - If <img src="https://render.githubusercontent.com/render/math?math=p = O(1)">,
+   so that many people have the illness, pooling doesn't help. 
  - If $p = 0.1$, perhaps typical of people being screened with symptoms, we can
    reduce the test count needed by about $\sim 0.6$ using pooling, and the two refined
 search methods we consider perform similarly here.
