@@ -1,5 +1,4 @@
 # Sample pooling to reduce needed disease screening test counts
-Author: Jonathan Landy
 
 Pooling of test samples can be used to reduce the mean number of test counts
 required to determine who in a set of subjects carries a disease. E.g., if the
@@ -13,19 +12,19 @@ which do not.
 Here, we consider two methods for refined search when a group is flagged
 positive, and provide python code that can be used to find the optimal pooling
 strategy.  This depends on the frequency of disease within the testing
-population, $p$.
+population, <img src="https://render.githubusercontent.com/render/math?math=p">.
 
 Impact summary of pooling concept: 
  - If <img src="https://render.githubusercontent.com/render/math?math=p = O(1)">,
    so that many people have the illness, pooling doesn't help. 
  - If <img src="https://render.githubusercontent.com/render/math?math=p = 0.1">,
    perhaps typical of people being screened with symptoms, we can
-   reduce the test count needed by about $\sim 0.6$ using pooling, and the two refined
+   reduce the test count needed by about 0.6 using pooling, and the two refined
 search methods we consider perform similarly here.
  - If <img src="https://render.githubusercontent.com/render/math?math=p = 0.001">,
    so that positive cases are rare -- perhaps useful for
    screening an office of workers expected to be healthy, then we can cut the
-mean test count by a factor of $50$, and the bisection method for refined search performs best here (details below).
+mean test count by a factor of 50, and the bisection method for refined search performs best here (details below).
 
 Code for this analysis can be found in the ipynb included in this repo.
 
@@ -100,20 +99,21 @@ Using the above results, our code produces plots of the mean number of tests
 needed to screen a population vs <img src="https://render.githubusercontent.com/render/math?math=\mathbb{K}">.
 This then finds the optimal number for each type.  The plots below give the results for the three <img src="https://render.githubusercontent.com/render/math?math=p"> values noted in the abstract.
 
-- Case 1: $p = 0.5$, large fraction of disease carriers.  Main result: The
+- Case 1: <img src="https://render.githubusercontent.com/render/math?math=p = 0.5">, large fraction of disease carriers.  Main result: The
 pooling strategies both cause the mean number of tests to be larger than if
 we just screened each individual from the start (seen here because the y-axis
 values are always bigger than 1).  The approach is not useful here.
 ![large_prob](./docs/pooling_05.png)
 
-- Case 2: $p = 0.1$, modest fraction of disease carriers.  Main result: The two
+- Case 2: <img src="https://render.githubusercontent.com/render/math?math=p = 0.1">, modest fraction of disease carriers.  Main result: The two
 methods both give comparable benefits.  It is optimal to pool using
-$\mathbb{K}=2$, which gives groups of $N = 4$ patients. This cuts the number of
-needed tests by a factor of $0.6$.
+
+<img src="https://render.githubusercontent.com/render/math?math=\mathbb{K}=2">, which gives groups of <img src="https://render.githubusercontent.com/render/math?math=N = 4"> patients. This cuts the number of
+needed tests by a factor of 0.6.
 ![med_prob](./docs/pooling_01.png)
 
-- Case 3: $p = 0.001$, small fraction of disease carriers.  Main result:
-Bisection wins, the optimal $\mathbb{K} = 9$ here, which gives a pooling
+- Case 3: <img src="https://render.githubusercontent.com/render/math?math=p = 0.001">, small fraction of disease carriers.  Main result:
+Bisection wins, the optimal <img src="https://render.githubusercontent.com/render/math?math=\mathbb{K} = 9"> here, which gives a pooling
 group of size 512.  We cut the test count needed by a factor of 50.  Note:
 We also show here a histogram showing the number of tests needed when we run a
 simulated system like this.  We see that we often only need one test, and there
@@ -122,8 +122,8 @@ is another peak around 20 tests, with a long tail after that.
 ![small_prob_hist](./docs/pooling_hist.png)
 
 
-The code to generate the optimal $\mathbb{K}$ plots above is given below.  This
-can be used to generate generalized plots like those above for any $p$. The
+The code to generate the optimal <img src="https://render.githubusercontent.com/render/math?math=\mathbb{K}"> plots above is given below.  This
+can be used to generate generalized plots like those above for any <img src="https://render.githubusercontent.com/render/math?math=p">. The
 histogram plot is contained in the included ipynb.  Our appendix follows.
 
 ```python
