@@ -174,10 +174,10 @@ test and k rows down we call the level k of tests.  There are total of <img src=
 The number of tests that need to be run at level k is set by the number of
 positive tests at level k-1.  We have
 
-<img src="https://render.githubusercontent.com/render/math?math=\text{Number of tests} = 1 %2B \sum_{k=0}^{\mathbb{K} - 1} \text{number positive level k}">
+<img src="https://render.githubusercontent.com/render/math?math=\text{Number of tests} = 1 %2B 2 \sum_{k=0}^{\mathbb{K} - 1} \text{number positive level k}">
 
 If we average this, we just get the number of tests at level k times the probability any given test is positive at that level. This gives
 
-<img src="https://render.githubusercontent.com/render/math?math=\overline{\text{Number of tests}} = 1 %2B  \sum_{k=0}^{\mathbb{K} - 1} 2^k \times [ 1- (1 - p)^{2^{\mathbb{K} - k}}].">
+<img src="https://render.githubusercontent.com/render/math?math=\overline{\text{Number of tests}} = 1 %2B 2  \sum_{k=0}^{\mathbb{K} - 1} 2^k \times [ 1- (1 - p)^{2^{\mathbb{K} - k}}].">
 
 This is the result shown above.
