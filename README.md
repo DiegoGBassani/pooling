@@ -29,6 +29,8 @@ mean test count needed to about 0.02 per person, a 50-fold reduction.  In this c
 Edit (4/1/2020):  The article about the Israeli group that tried this confirmed
 it would work with swab tests for Covid19 using pools up to size 64 (<a href="https://www.timesofisrael.com/to-ease-global-virus-test-bottleneck-israeli-scientists-suggest-pooling-samples/">link</a>).
 
+Edit (4/6/2020):  This tweets suggests that Germany will apply this idea to Covid testing (<a href="https://twitter.com/koeppelmann/status/1245037948099330048">link</a>).
+
 Code for this analysis can be found in the ipynb included in this repo.
 
 ### **COVID19 background, strategies considered here**
