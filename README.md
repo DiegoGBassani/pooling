@@ -26,10 +26,14 @@ search methods we consider perform similarly here.
    screening an office of workers expected to be healthy, then we can cut the
 mean test count needed to about 0.02 per person, a 50-fold reduction.  In this case, the bisection method for refined search performs best (details below).
 
-Edit (4/1/2020):  The article about the Israeli group that tried this confirmed
-it would work with swab tests for Covid19 using pools up to size 64 (<a href="https://www.timesofisrael.com/to-ease-global-virus-test-bottleneck-israeli-scientists-suggest-pooling-samples/">link</a>).
 
-Edit (4/6/2020):  This tweets suggests that Germany may be considering applying this idea to Covid testing (<a href="https://twitter.com/koeppelmann/status/1245037948099330048">link</a>).
+External references:
+ - An Israeli group that tried this confirmed it would work with swab tests for
+   Covid19 using pools up to size 64 (<a href="https://www.timesofisrael.com/to-ease-global-virus-test-bottleneck-israeli-scientists-suggest-pooling-samples/">link</a>).
+
+ - Wikipedia on group testing (<a href="https://en.wikipedia.org/wiki/Group_testing">link</a>)
+
+ - NYT article that states that some German hospitals are using the idea (<a href="https://www.nytimes.com/2020/04/04/world/europe/germany-coronavirus-death-rate.html">link</a>)
 
 Code for this analysis can be found in the ipynb included in this repo.
 
